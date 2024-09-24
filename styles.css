@@ -1,125 +1,282 @@
-  .hover-box::before {
+.hover-box::before {
     animation: exit 1500ms forwards;
-  }
-  
-  .hover-box:hover::before {
+}
+
+.hover-box:hover::before {
     animation: enter 1500ms forwards;
-  }
-  
-  @keyframes enter {
-    from { translate: 0 0; }
-    to { translate: var(--x) var(--y); }
-  }
-  
-  @keyframes exit {
-    from { translate: var(--x) var(--y); }
-    to { translate: 0 0; }
-  }
-  
-  @keyframes text-enter-2 {
-    from { translate: 0 0; }
-    to { translate: calc(2 * var(--x) - 100px) calc(1.5 * var(--y) - 100px); }
-  }
+}
 
-  @keyframes text-enter {
-    from { translate: 0 0; }
-    to { translate: calc(var(--x) + 85px) calc(var(--y) - 10px); }
-  }
-  
-  @layer general-styling {
+@keyframes enter {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: var(--x) var(--y);
+    }
+}
+
+@keyframes exit {
+    from {
+        translate: var(--x) var(--y);
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes text-enter-2 {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: calc(2 * var(--x) - 100px) calc(1.5 * var(--y) - 100px);
+    }
+}
+
+@keyframes text-enter {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: calc(var(--x) + 85px) calc(var(--y) - 10px);
+    }
+}
+
+@layer general-styling {
     html {
-      color-scheme: dark;
+        color-scheme: dark;
     }
-  
-    body {
-      margin: 0;
-      min-block-size: 100svh;
-      display: grid;
-    }
-    
-    .p-wrapper {
-      position: absolute;
-      top: 40px;
-      padding: 0px 100px;
-      z-index: -1;
-    }
-    
-    p {
-      color: #ccc;
-    }
-    
-    .dark-container {
-      position: absolute;
-      top: 310px;
-      width: 600px;
-      height: 280px;
-      border-top: 2px solid hotpink;
-      background: #111;
-      overflow: hidden;
 
-      z-index: -2;
-      mask-image: 
-      /* linear-gradient(90deg, transparent, #000 10% 90%, transparent); */
-      radial-gradient(ellipse at center, #000 25%, transparent 90%);
+    body {
+        display: grid;
+        min-block-size: 100svh;
+        margin: 0;
     }
-    
+
+    h1 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: underline;
+    }
+
+    .h2-wrapper {
+        width: min(600px, 70%);
+        margin-inline: auto;
+    }
+
+    /* searchlight */
+    .p-wrapper {
+        position: absolute;
+        top: 40px;
+        padding: 0px 100px;
+        z-index: -1;
+    }
+
+    p {
+        color: #ccc;
+    }
+
+    .dark-container {
+        position: absolute;
+        top: 310px;
+        width: 600px;
+        height: 280px;
+        border-top: 2px solid hotpink;
+        background: #111;
+        overflow: hidden;
+
+        z-index: -2;
+        mask-image: radial-gradient(ellipse at center, #000 25%, transparent 90%);
+    }
+
     .dark-text {
         width: 100%;
         height: 90%;
         padding: 20px;
         text-wrap: pretty;
         z-index: -10;
-        /* mask-image: 
-        linear-gradient(transparent, #000 20% 80%, transparent); */
     }
-    
+
     .dark-text p {
-      margin: 50px 80px;
-      width: 50ch;
-      color: rgba(20 20 20 / 0.9);
+        margin: 50px 80px;
+        width: 50ch;
+        color: rgba(20 20 20 / 0.9);
     }
-    
+
     .light {
-      position: absolute;
-      content: "";
-      display: block;
-      width: clamp(50px, 10%, 500px);
-      aspect-ratio: 1;
-      inset: -265px 0px 0 60px;
-      border-radius: 50%;
-      background: rgba(219 206 70 / 0.5);
-      box-shadow: 0 0 1.5rem 1.5rem rgba(219 206 70 / 0.5);
-      z-index: -100;
+        position: absolute;
+        content: "";
+        display: block;
+        width: clamp(50px, 10%, 500px);
+        aspect-ratio: 1;
+        inset: -265px 0px 0 60px;
+        border-radius: 50%;
+        background: rgba(219 206 70 / 0.5);
+        box-shadow: 0 0 1.5rem 1.5rem rgba(219 206 70 / 0.5);
+        z-index: -100;
     }
-  
-  .hover-box:hover .light {
-    animation: text-enter-2 1500ms forwards;
-  }
-  
+
+    .hover-box:hover .light {
+        animation: text-enter-2 1500ms forwards;
+    }
+
     .hover-box {
-      position: relative;
-      display: grid;
-      place-items: center;
-      width: min(600px, 70%);
-      margin: auto;
-      aspect-ratio: 1;
-      border: 3px solid hsl(200, 100%, 50%);
-      border-radius: 0.5rem;
-      box-shadow: 0 0 0.5rem hsl(200, 100%, 70%),
-        inset 0 0 0.5rem hsl(200, 100%, 70%);
-      overflow: hidden;
-      cursor: none;
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: min(600px, 70%);
+        margin: 0 auto 2rem;
+        aspect-ratio: 1;
+        border: 3px solid hsl(200, 100%, 50%);
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.5rem hsl(200, 100%, 70%),
+            inset 0 0 0.5rem hsl(200, 100%, 70%);
+        overflow: hidden;
+        cursor: none;
     }
-  
+
     .hover-box::before {
-      content: "";
-      display: block;
-      width: clamp(50px, 10%, 500px);
-      aspect-ratio: 1;
-      margin: 45px auto auto 75px;
-      border-radius: 50%;
-      background: rgba(255 255 255 / 0.4);
-      box-shadow: 0 0 1.5rem 1.5rem rgba(255 255 255 / 0.4);
+        content: "";
+        display: block;
+        width: clamp(50px, 10%, 500px);
+        aspect-ratio: 1;
+        margin: 45px auto auto 75px;
+        border-radius: 50%;
+        background: rgba(255 255 255 / 0.4);
+        box-shadow: 0 0 1.5rem 1.5rem rgba(255 255 255 / 0.4);
     }
-  }
-  
+}
+
+/* ice cream */
+.ice-wrap {
+    width: 150px;
+    margin: 20px auto;
+
+    &>* {
+        position: relative;
+    }
+}
+
+.red {
+    height: 140px;
+    width: 150px;
+    background: #ff4346;
+    border-radius: 70px 70px 0 0;
+    box-shadow: inset -50px 2px 10px -19px #0008;
+}
+
+.white {
+    --red-height: 20px;
+    width: 150px;
+    height: 100px;
+    background: #efe;
+    background: linear-gradient(#ff4346, #efe 5px 95px, #1ad);
+    box-shadow: inset -50px 2px 10px -19px #0008;
+}
+
+.blue {
+    --white-height: 30px;
+    width: 150px;
+    height: 80px;
+    background: #1ad;
+    border-radius: 0 0 15px 15px;
+    box-shadow: inset -50px 2px 10px -19px #0008;
+
+    &>* {
+        top: -4px;
+    }
+}
+
+.stick {
+    width: 30px;
+    height: 60px;
+    margin: 3px auto;
+    background: navajowhite;
+    border-radius: 0 0 100px 100px;
+    box-shadow: inset 0px 25px 10px -19px #000b, -20px 0 10px -10px inset #0008;
+}
+
+.red-melting {
+    display: inline-block;
+    width: 20px;
+    height: var(--red-height);
+    margin: 0 10px;
+    border-radius: 0 0 10px 10px;
+    background:
+        linear-gradient(#ff4346 calc(var(--red-height) * 0.9), #0000),
+        radial-gradient(#ff4346, #efe);
+    transition: height 1.2s ease-out;
+    box-shadow: -14px 0 4px -10px inset #0003;
+}
+
+.white-melting {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: var(--white-height);
+    margin: 0 20px;
+    border-radius: 0 0 10px 10px;
+    background:
+        linear-gradient(#efe 5px, #0000),
+        radial-gradient(#efe, #1ad);
+    transition: height 0.8s ease-out;
+    box-shadow: -11px 0 4px -7px inset #0002;
+}
+
+.stick-melting {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    border-radius: 0 0 10px 10px;
+    background:
+        linear-gradient(#1ad 5px, #0000),
+        radial-gradient(#1ad, navajowhite);
+    transition: height 2s ease-out;
+    box-shadow: 0px 3px 2px 0 inset #000b, -15px 0 5px -10px inset #0006;
+}
+
+.ice-wrap:hover {
+    .red-melting {
+        height: calc(var(--red-height) + 30px);
+    }
+
+    .white-melting {
+        height: calc(var(--white-height) + 10px);
+    }
+
+    .stick-melting {
+        height: 25px;
+    }
+}
+
+.red-melting2 {
+    --red-height: 30px;
+    position: absolute;
+}
+
+.red-melting3 {
+    --red-height: 25px;
+    position: absolute;
+    inset: 0 25px auto auto;
+}
+
+.white-melting2 {
+    --white-height: 20px;
+    position: absolute;
+}
+
+.white-melting3 {
+    --white-height: 25px;
+    position: absolute;
+    inset: -4px -14px auto auto;
+    box-shadow: 0px 0px 0px 10px inset #0008;
+}
