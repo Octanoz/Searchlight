@@ -172,6 +172,51 @@
     background: #ff4346;
     border-radius: 70px 70px 0 0;
     box-shadow: inset -50px 2px 10px -19px #0008;
+
+    .glitter {
+        position: absolute;
+        inset: 20px;
+        width: 40px;
+        aspect-ratio: 1;
+        border-radius: 50% 0 0 0;
+        background: #ff4346;
+        /* background: #333; */
+        rotate: 0deg;
+        clip-path: xywh(0 0 70% 70%);
+        contain: paint;
+
+        &::after {
+            position: absolute;
+            content: "";
+            inset: 5px 0 0 5px;
+            width: 50px;
+            aspect-ratio: 1;
+            border-radius: 50% 0 0 0;
+            background: #ff4346;
+            /* background: gold; */
+        }
+    }
+
+    .shine {
+        width: 4px;
+        height: 40px;
+        background: #eeeb;
+        transform: translateX(-20px) skewX(40deg);
+        animation: glisten 5s infinite alternate;
+        z-index: -10;
+    }
+}
+
+@keyframes glisten {
+    75% {
+        translate: 0px 0;
+    }
+
+
+
+    to {
+        translate: 100px 0;
+    }
 }
 
 .white {
@@ -179,7 +224,7 @@
     width: 150px;
     height: 100px;
     background: #efe;
-    background: linear-gradient(#ff4346, #efe 5px 95px, #1ad);
+    background: linear-gradient(#ff4346, #efe 5px);
     box-shadow: inset -50px 2px 10px -19px #0008;
 }
 
@@ -188,12 +233,9 @@
     width: 150px;
     height: 80px;
     background: #1ad;
+    background: linear-gradient(#efe, #1ad 5px);
     border-radius: 0 0 15px 15px;
     box-shadow: inset -50px 2px 10px -19px #0008;
-
-    &>* {
-        top: -4px;
-    }
 }
 
 .stick {
@@ -212,9 +254,9 @@
     margin: 0 10px;
     border-radius: 0 0 10px 10px;
     background:
-        linear-gradient(#ff4346 calc(var(--red-height) * 0.9), #0000),
-        radial-gradient(#ff4346, #efe);
-    transition: height 1.2s ease-out;
+        linear-gradient(#ff4346 calc(var(--red-height) * 1.25), #0000),
+        radial-gradient(#ff4346 45%, #efe);
+    transition: height 1.6s ease-out;
     box-shadow: -14px 0 4px -10px inset #0003;
 }
 
@@ -226,9 +268,10 @@
     margin: 0 20px;
     border-radius: 0 0 10px 10px;
     background:
-        linear-gradient(#efe 5px, #0000),
-        radial-gradient(#efe, #1ad);
-    transition: height 0.8s ease-out;
+        linear-gradient(#efe calc(var(--white-height) * 0.9), #0000),
+        radial-gradient(#efe 45%, #1ad);
+    /* background: #efe; */
+    transition: height 1s ease-out;
     box-shadow: -11px 0 4px -7px inset #0002;
 }
 
@@ -246,11 +289,15 @@
 
 .ice-wrap:hover {
     .red-melting {
-        height: calc(var(--red-height) + 30px);
+        height: calc(var(--red-height) * 2.5);
     }
 
-    .white-melting {
-        height: calc(var(--white-height) + 10px);
+    .blue> :not(.white-melting3) {
+        height: calc(var(--white-height) * 1.6);
+    }
+
+    .white-melting3 {
+        height: calc(var(--white-height) * 1.1);
     }
 
     .stick-melting {
@@ -278,5 +325,6 @@
     --white-height: 25px;
     position: absolute;
     inset: -4px -14px auto auto;
+    width: 15px;
     box-shadow: 0px 0px 0px 10px inset #0008;
 }
