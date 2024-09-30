@@ -13,6 +13,10 @@
         <h2>Searchlight</h2>
       </div>
       <div class="hover-box">
+        <div class="hover-box-overlay">
+            <h5>HOVER EFFECT</h5>
+            <p>Not possible on a phone</p>
+        </div>
         <div class="p-wrapper">
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto veniam nobis, dolorem temporibus quae cum eveniet ipsa aliquam eos est. Excepturi porro at possimus voluptatum culpa fugit vel suscipit quos?</p>
           <p>  Quae illum molestias, corporis totam adipisci quam ut velit magnam tempora ducimus voluptate numquam ea eos vero qui, quibusdam, et ipsum possimus expedita ex iste unde exercitationem? Pariatur, magnam obcaecati.
@@ -51,6 +55,52 @@
           <div class="stick-melting"></div>
         </div>
       </div>
+      <div class="hover-text">
+        <p>This is a hover effect. Some phones allow you to use long press to start a permanent hover and you could refresh the page to go back to the start position but really you need a mouse or similar device to trigger this properly.</p>
+      </div>  
+    </section>
+    <section id="dynamic-changes">
+        <div class="h2-wrapper">
+            <h2>Dynamic Changes</h2>
+        </div>
+        <div class="dynamic-wrap">
+            <div class="alignments">
+                <fieldset>
+                  <legend>Choose an alignment</legend>
+                  <div>
+                    <input type="radio" id="align1" name="alignChoice" value="start" checked />
+                    <label for="align1">start</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="align2" name="alignChoice" value="center" />
+                    <label for="align2">center</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="align3" name="alignChoice" value="end" />
+                    <label for="align3">end</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="align4" name="alignChoice" value="space-around" />
+                    <label for="align4">space-around</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="align5" name="alignChoice" value="space-evenly" />
+                    <label for="align5">space-evenly</label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="items-wrap">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+        </div>
+        <div class="explanation">
+            <p>Here's some new CSS functionality that wasn't possible a few months ago without using JavaScript.</p>
+            <p>There's a wrapping div around the selectors box and the red field which holds a custom property. The custom property is used in the red field to set the alignment of the items within. By using the :has() selector, selecting a radio button will give the custom property that button's setting.</p>
+            <p>The wrapper is actually inside another new feature, the encompassing section is also a container. The size of the red field is set using container sizes and when the layout will change depending on the size of the container.</p>
+        </div>
     </section>
     <script src="main.js"></script>
 </body>
