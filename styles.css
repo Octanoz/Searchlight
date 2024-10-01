@@ -199,8 +199,8 @@
         .shine {
             width: 4px;
             height: 40px;
-            background: #eeeb;
-            transform: translateX(-20px) skewX(40deg);
+            background: #eee8;
+            transform: translateX(-20px) skewX(-40deg);
             animation: glisten 5s infinite alternate;
             z-index: -10;
         }
